@@ -1,5 +1,17 @@
 # PhantomFHE: A CUDA-Accelerated Fully Homomorphic Encryption Library
 
+## Quickstart Custom Benchmarking Guide
+This is mainly a clone of the PhantomFHE library. Commit used (latest at the 
+time): d09c110d2d3a48a45fe1796d8ab6f0d1dabd6b15.
+
+Run the benchmarks using the following commands:
+```
+cmake -S . -B build # create build files
+cmake --build build --target custom_benchmark -j # build only the custom benchmark to save time
+./build/bin/custom_benchmark --benchmark_time_unit=us # run the benchmarks and display the results in microseconds
+```
+
+
 > [!IMPORTANT]  
 > This is a research project and is not intended for production use. We are actively working on improving the
 > performance and usability of this library. If you have any questions or suggestions, please feel free to open an issue

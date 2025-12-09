@@ -9,6 +9,10 @@ if (PHANTOM_USE_CUDA_PTX)
     add_compile_definitions(PHANTOM_USE_CUDA_PTX)
 endif ()
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
+
 if (NOT DEFINED CMAKE_CUDA_ARCHITECTURES)
     set(CMAKE_CUDA_ARCHITECTURES native)
 endif ()
@@ -68,3 +72,6 @@ endif ()
 install(TARGETS Phantom EXPORT PhantomConfig)
 install(EXPORT PhantomConfig NAMESPACE phantom:: DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/phantom)
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/phantom)
+
+# add custom benchmark
+add_subdirectory(custom_benchmark)
