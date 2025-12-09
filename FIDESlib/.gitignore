@@ -1,0 +1,16 @@
+*.i
+*.ii
+*.gpu
+*.ptx
+*.cubin
+*.fatbin
+
+bench/plots/figures/
+
+build/
+
+/doxygen/latex/
+/doxygen/html/
+
+.vscode/
+.idea/
