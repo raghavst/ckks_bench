@@ -7,7 +7,7 @@
 A server-side CKKS GPU library fully interoperable with OpenFHE.
 
 ## Quickstart Custom Benchmarking Guide
-This is mainly a clone of the PhantomFHE library. Commit used (latest at the 
+This is mainly a clone of the FIDESlib library. Commit used (latest at the 
 time): 85b7d08cc6c564bf0f07b037ad1619b406cf3253.
 
 Run the benchmarks using the following commands:
