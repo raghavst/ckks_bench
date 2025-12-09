@@ -35,4 +35,4 @@ WORKDIR /cheddar/unittest/build
 RUN cmake .. -DCMAKE_BUILD_TYPE=Release && \
     make -j$(nproc)
 
-CMD ["/cheddar/unittest/build/boot_test"]
+CMD ["/cheddar/unittest/build/custom_benchmark", "--benchmark_time_unit=us"]

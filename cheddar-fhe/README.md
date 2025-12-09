@@ -1,5 +1,15 @@
 # Cheddar: A Swift Fully Homomorphic Encryption (FHE) GPU Library 0.1
 
+## Quickstart Custom Benchmarking Guide
+This is mainly a clone of the cheddar library. Commit used (latest at the 
+time): a62bfbc8223a36de954f988c0dc5a55ba7cc44b7.
+
+Run the benchmarks using the following commands:
+```
+docker build -t custom_benchmark . # build the project. May need to use sudo
+docker run --rm -it --gpus=all custom_benchmark # run the benchmarks. May need to use sudo
+```
+
 Cheddar is a swift C++/CUDA library for the GPU execution of fully homomorphic encryption (FHE).
 Cheddar targets the CKKS (Cheon-Kim-Kim-Song) FHE scheme.
 Cheddar significantly improves the performance of CKKS workloads when comparing it to the reported workload performance of state-of-the-art closed-source GPU implementations:

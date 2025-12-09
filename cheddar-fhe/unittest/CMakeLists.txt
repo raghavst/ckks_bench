@@ -42,8 +42,8 @@ include_directories(/cheddar/include ${CUDAToolkit_INCLUDE_DIRS}
                     ${LIBTOMMATH_INCLUDE_DIRS})
 link_directories(/cheddar/lib)
 
-add_executable(basic_test BasicTest.cpp)
-target_link_libraries(basic_test
+add_executable(basic BasicTest.cpp)
+target_link_libraries(basic
                       PRIVATE cheddar rmm gtest_main nlohmann_json::nlohmann_json)
 
 if (ENABLE_EXTENSION)
@@ -58,3 +58,16 @@ configure_file(parameters/bootparam_35.json
                ${CMAKE_CURRENT_BINARY_DIR}/bootparam_35.json COPYONLY)
 configure_file(parameters/bootparam_40.json
                ${CMAKE_CURRENT_BINARY_DIR}/bootparam_40.json COPYONLY)
+
+# add custom benchmark
+FetchContent_Declare(
+  benchmark
+  GIT_REPOSITORY https://github.com/google/benchmark.git
+  GIT_TAG v1.9.4
+)
+FetchContent_MakeAvailable(benchmark)
+configure_file(parameters/bootparam_30_custom.json
+               ${CMAKE_CURRENT_BINARY_DIR}/bootparam_30_custom.json COPYONLY)
+add_executable(custom_benchmark custom_benchmark.cpp)
+target_link_libraries(custom_benchmark 
+                      PRIVATE cheddar benchmark::benchmark rmm nlohmann_json::nlohmann_json)
